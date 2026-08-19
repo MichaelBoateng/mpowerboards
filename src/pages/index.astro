@@ -184,11 +184,21 @@ const metadata = {
 
   <WidgetWrapper id="team" containerClass="max-w-6xl mx-auto">
     <Headline tagline="Who's behind it" title="Meet the team" />
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-      <Image src={teamMichael} alt="Michael A. Boateng" width={500} height={308} class="w-full h-auto rounded-lg" />
-      <Image src={teamAudrey} alt="Audrey H. Vu" width={500} height={308} class="w-full h-auto rounded-lg" />
-      <Image src={teamIfeanyi} alt="Ifeanyi D. Sorokwu" width={500} height={308} class="w-full h-auto rounded-lg" />
-      <Image src={teamBetelihem} alt="Betelihem K. Ashebo" width={500} height={308} class="w-full h-auto rounded-lg" />
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      {
+        [
+          { image: teamMichael, name: 'Michael A. Boateng', role: 'PhD Student, Electrical & Computer Engineering' },
+          { image: teamAudrey, name: 'Audrey H. Vu', role: 'Undergraduate Student, Electrical & Computer Engineering' },
+          { image: teamIfeanyi, name: 'Ifeanyi D. Sorokwu', role: 'PhD Student, Electrical & Computer Engineering' },
+          { image: teamBetelihem, name: 'Betelihem K. Ashebo', role: 'PhD Student, Electrical & Computer Engineering' },
+        ].map(({ image, name, role }) => (
+          <div class="text-center">
+            <Image src={image} alt={name} width={792} height={618} class="w-full h-auto rounded-lg" />
+            <h3 class="mt-4 font-semibold dark:text-white">{name}</h3>
+            <p class="text-sm text-muted dark:text-slate-400">{role}</p>
+          </div>
+        ))
+      }
     </div>
   </WidgetWrapper>
 
