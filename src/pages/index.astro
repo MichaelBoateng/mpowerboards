@@ -4,395 +4,206 @@ import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Contact from '~/components/widgets/Contact.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import { Image } from 'astro:assets';
+import teamMichael from '~/assets/images/mpb/team-michael.png';
+import teamAudrey from '~/assets/images/mpb/team-audrey.png';
+import teamIfeanyi from '~/assets/images/mpb/team-ifeanyi.png';
+import teamBetelihem from '~/assets/images/mpb/team-betelihem.png';
 
 const metadata = {
-  title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
+  title: 'MPowerBoards — Revolutionizing Power Grid Education and Research',
   ignoreTitleTemplate: true,
 };
 ---
 
 <Layout metadata={metadata}>
+  <Fragment slot="announcement"></Fragment>
+
   <!-- Hero Widget ******************* -->
 
   <Hero
     actions={[
-      {
-        variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/arthelokyo/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
-      },
-      { text: 'Learn more', href: '#features' },
+      { variant: 'primary', text: 'Explore the boards', href: '#boards' },
+      { text: 'Watch the demo', href: '#demo' },
     ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
+    image={{ src: '~/assets/images/mpb/board-usa1.png', alt: 'MPowerBoards Power Systems Education Board' }}
   >
     <Fragment slot="title">
-      Free template for <span class="hidden xl:inline">creating websites with</span>
-      <span class="text-accent dark:text-white"> Astro v7</span> + Tailwind CSS
+      Revolutionizing <span class="text-accent dark:text-white">Power Grid</span> Education and Research
     </Fragment>
 
     <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        <span class="font-semibold">AstroWind</span> is a free, customizable and production-ready template for Astro v7 +
-        Tailwind CSS v4.</span
-      >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span>
-      Suitable for Startups, Small Business, SaaS websites, Professional Portfolios, Marketing websites, Landing Pages & Blogs.
+      MPowerBoards transforms real power-grid simulations into interactive physical boards using LEDs, embedded
+      electronics, and real-time visualization. Students don't just calculate power flow — they watch it happen.
     </Fragment>
   </Hero>
 
   <!-- Note Widget ******************* -->
 
-  <Note title="Philosophy:" description="Simplicity, Best Practices and High Performance" />
+  <Note
+    title="The problem:"
+    description="Power systems are hard to visualize. Software and equations alone aren't enough, and existing hardware is expensive or inaccessible — so thousands of engineering students learn the grid without ever truly seeing it work."
+  />
 
   <!-- Features Widget *************** -->
 
   <Features
-    id="features"
-    tagline="Features"
-    title="What you get with AstroWind"
-    subtitle="One of the most professional and comprehensive templates currently on the market. Most starred & forked Astro theme in 2022, 2023, 2024 and 2025."
+    tagline="Interactive Physical Visualization"
+    title="Learning the grid, by watching it run"
+    subtitle="Three flagship boards for classrooms, education, and research — from basic concepts to real grid operations."
+    columns={3}
     items={[
       {
-        title: 'Astro + Tailwind CSS Integration',
-        description:
-          'A seamless integration between two great frameworks that offer high productivity, performance and versatility. Now powered by Tailwind CSS v4.',
-        icon: 'tabler:brand-tailwind',
+        title: 'Real-time simulations',
+        description: 'Power flow computed live and displayed on-board as students change conditions in real time.',
+        icon: 'tabler:activity',
       },
       {
-        title: 'Ready-to-use Components',
-        description:
-          'Widgets made with Tailwind CSS v4 ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
-        icon: 'tabler:components',
+        title: 'Embedded electronics',
+        description: 'Custom PCBs with onboard microcontrollers, displays, and LEDs model each grid in hardware.',
+        icon: 'tabler:cpu',
       },
       {
-        title: 'Best Practices',
-        description:
-          'Creating secure, efficient, and user-friendly websites that deliver exceptional experiences and lasting value.',
-        icon: 'tabler:list-check',
-      },
-      {
-        title: 'Excellent Page Speed',
-        description:
-          'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'Search Engine Optimization (SEO)',
-        description:
-          "SEO lies in its ability to enhance a website's visibility, driving organic traffic and enabling it to reach a wider audience.",
-        icon: 'tabler:arrows-right-left',
-      },
-      {
-        title: 'Open to new ideas and contributions',
-        description:
-          'Embracing a culture that is open to new ideas and contributions is integral fostering innovation, collaboration, and a dynamic user experience.',
-        icon: 'tabler:bulb',
+        title: 'Modeling complex concepts',
+        description: 'From Optimal Power Flow to Locational Marginal Pricing, made tangible on real board layouts.',
+        icon: 'tabler:topology-star-3',
       },
     ]}
   />
 
-  <!-- Content Widget **************** -->
+  <!-- Boards ************************ -->
 
   <Content
-    isReversed
-    tagline="Inside template"
-    title="AstroWind's Blueprint: Fun Meets Functionality!"
+    id="boards"
+    tagline="Flagship Board"
+    title="USA1 — Power Systems Education Board"
     items={[
-      {
-        title: 'Built on top of Astro v7',
-        description:
-          'Benefiting from the performance and developer-friendly features of this modern static site generator.',
-      },
-      {
-        title: 'Styled using Tailwind CSS v4',
-        description:
-          'Facilitating rapid design and consistent styling with this highly popular utility-first CSS framework.',
-      },
-      {
-        title: 'Cross-browser compatibility',
-        description:
-          'Ensure your website looks and functions consistently across various web browsers, delivering a seamless experience to all users.',
-      },
+      { title: 'PJM-5 and IEEE-14 test cases', description: 'Switch between standard teaching cases with the Case Select button.' },
+      { title: 'OPF, LMP, and SCOPF', description: 'Run Optimal Power Flow, Locational Marginal Pricing, and Security Constrained OPF on demand.' },
+      { title: 'DC and AC based modes', description: 'Toggle between DC-based and AC-based power flow formulations.' },
+      { title: 'Built with Georgia Tech', description: 'Developed with the AI Institute for Advances in Optimization.' },
     ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Colorful Image',
-    }}
+    image={{ src: '~/assets/images/mpb/board-usa1.png', alt: 'MPowerBoards USA1 Power Systems Education Board' }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building on modern foundations</h3>
-      Gain a competitive advantage by incorporating industry leading practices
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      Our general-purpose classroom board for teaching core power systems concepts on familiar U.S. test networks.
     </Fragment>
   </Content>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isAfterContent
-    items={[
-      {
-        title: 'High level of customization',
-        description: `Tailor the template effortlessly to match your brand's identity and requirements, making your website distinct and saving you time.`,
-      },
-      {
-        title: 'Multiple layout possibilities',
-        description:
-          'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
-      },
-      {
-        title: 'Fully responsive design',
-        description:
-          "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
-      },
-      {
-        title: 'Integration of media',
-        description:
-          'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
-      alt: 'Blueprint Image',
-    }}
-  >
-    <Fragment slot="content">Ensure your online presence truly represents you.</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Content Widget **************** -->
 
   <Content
     isReversed
     isAfterContent
+    tagline="Flagship Board"
+    title="Gh1 — Ghana Electric Grid Simulation"
     items={[
-      {
-        title: 'Enhanced user engagement',
-        description:
-          'Captivate your audience with interactive elements, intuitive navigation, and visually appealing layouts, encouraging longer visits.',
-      },
-      {
-        title: 'Continuous improvement',
-        description:
-          'Ensure your website stays aligned with the latest trends and technologies through regular updates and enhancements.',
-      },
-      {
-        title: 'Time and resource efficiency',
-        description:
-          'Skip the time-consuming process of building a website from scratch and launch your online presence sooner with AstroWind.',
-      },
-      {
-        title: 'Community support',
-        description: `Join the growing AstroWind community for insights, resources, and assistance, ensuring you're never alone on your web development journey.`,
-      },
+      { title: 'A real, synthetic African grid', description: 'Modeled on the paper "Developing a Synthetic Electric Grid in Africa: A Case Study in Ghana."' },
+      { title: 'DC OPF and SC OPF (N-1)', description: 'Explore substation-level results under normal and contingency conditions.' },
+      { title: 'Substation selection & results display', description: 'Dedicated OLED panels for picking a substation and reading live results.' },
+      { title: 'Built with Georgia Tech GOAL', description: 'Developed with the Grid Optimization & Algorithms Lab, for classrooms studying grids beyond the U.S.' },
     ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Astronauts Image',
-    }}
+    image={{ src: '~/assets/images/mpb/board-gh1.png', alt: 'MPowerBoards Gh1 Ghana Electric Grid Simulation board' }}
   >
-    <Fragment slot="content">Designed to foster growth and success.</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    <Fragment slot="content">
+      Built for a Georgia Tech professor who wanted a realistic board of an African grid for classroom use.
     </Fragment>
   </Content>
 
-  <!-- Steps Widget ****************** -->
-
-  <Steps
-    title="Get your dream website up and running in no time with AstroWind."
+  <Content
+    isAfterContent
+    tagline="Flagship Board"
+    title="ISO1 — Interconnections"
     items={[
-      {
-        title: 'Step 1: <span class="font-medium">Download</span>',
-        description:
-          "Kickstart with GitHub! Either fork the AstroWind template or simply click 'Use this template'. Your canvas awaits, ready for your digital masterpiece. In just a few clicks, you've already set the foundation.",
-        icon: 'tabler:package',
-      },
-      {
-        title: 'Step 2: <span class="font-medium">Add content</span>',
-        description:
-          "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
-        icon: 'tabler:letter-case',
-      },
-      {
-        title: 'Step 3: <span class="font-medium">Customize styles</span>',
-        description:
-          'Give it your personal touch. Tailor colors, fonts, and layouts until it feels just right. Your unique flair, amplified by AstroWind! Precision in design ensures a seamless user experience.',
-        icon: 'tabler:paint',
-      },
-      {
-        title: 'Ready!',
-        icon: 'tabler:check',
-      },
+      { title: 'Four North American interconnections', description: 'Western, ERCOT, Eastern, and Quebec, all on one board.' },
+      { title: 'Real Independent System Operators', description: 'CAISO, ERCOT, MISO, New York ISO, PJM, SPP, and Hydro Québec.' },
+      { title: 'Live ISO data selection', description: 'Data Selection and ISO Selection controls let you browse each region.' },
+      { title: 'Designed to be displayed', description: 'A decorative board built for a Georgia Tech professor\'s office.' },
     ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
-    }}
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Most used widgets"
-    subtitle="Provides frequently used components for building websites using Tailwind CSS v4"
-    tagline="Components"
-    items={[
-      {
-        title: 'Headers',
-        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
-        icon: 'flat-color-icons:template',
-      },
-      {
-        title: 'Heros',
-        description:
-          "Picture a superhero landing – epic, right? That's the job of a Hero section, making grand entrances!",
-        icon: 'flat-color-icons:gallery',
-      },
-      {
-        title: 'Features',
-        description:
-          'Where websites strut their stuff and show off superpowers. No holding back on the bragging rights here!',
-        icon: 'flat-color-icons:approval',
-      },
-      {
-        title: 'Content',
-        description:
-          "Dive into the meat and potatoes of a site; without it, you'd just be window shopping. Content is king.",
-        icon: 'flat-color-icons:document',
-      },
-      {
-        title: 'Call-to-Action',
-        description:
-          'That enthusiastic friend who\'s always urging, "Do it! Do it!"? Yeah, that\'s this button nudging you towards adventure.',
-        icon: 'flat-color-icons:advertising',
-      },
-      {
-        title: 'Pricing',
-        description: 'Behold the dessert menu of the website world. Tempting choices await, can you resist?',
-        icon: 'flat-color-icons:currency-exchange',
-      },
-      {
-        title: 'Testimonial',
-        description: 'Step into the gossip corner! Here, other visitors spill the beans and share the juicy details.',
-        icon: 'flat-color-icons:voice-presentation',
-      },
-      {
-        title: 'Contact',
-        description:
-          'Like a digital mailbox, but faster! Drop a line, ask a question, or send a virtual high-five. Ding! Message in.',
-        icon: 'flat-color-icons:business-contact',
-      },
-      {
-        title: 'Footers',
-        description: "The footer's like the credits of a movie but sprinkled with easter eggs. Time to hunt!",
-        icon: 'flat-color-icons:database',
-      },
-    ]}
+    image={{ src: '~/assets/images/mpb/board-iso1.png', alt: 'MPowerBoards ISO1 Interconnections board' }}
   >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    <Fragment slot="content">
+      A showpiece board that maps the grid's real operating boundaries across North America.
     </Fragment>
-  </Features2>
+  </Content>
 
-  <!-- HighlightedPosts Widget ******* -->
+  <!-- Demo Video ******************** -->
 
-  <BlogLatestPosts
-    title="Find out more content in our Blog"
-    information={`The blog is used to display AstroWind documentation.
-                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro v7 + Tailwind CSS v4.
-                        Astro is a very interesting technology. Thanks.
-                `}
-  />
-
-  <!-- FAQs Widget ******************* -->
-
-  <FAQs
-    title="Frequently Asked Questions"
-    subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
-    tagline="FAQs"
-    classes={{ container: 'max-w-6xl' }}
-    items={[
-      {
-        title: 'Why AstroWind?',
-        description:
-          "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
-      },
-      {
-        title: 'What do I need to start?',
-        description:
-          'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
-      },
-      {
-        title: 'How to install the Astro + Tailwind CSS template?',
-        description:
-          "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.",
-      },
-      {
-        title: "What's something that you don't understand?",
-        description:
-          "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
-      },
-      {
-        title: 'What is something that you would like to try again?',
-        description:
-          "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
-      },
-      {
-        title: 'If you could only ask one question to each person you meet, what would that question be?',
-        description:
-          "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
-      },
-    ]}
-  />
+  <WidgetWrapper id="demo" containerClass="max-w-5xl mx-auto">
+    <Headline
+      tagline="See it in action"
+      title="MPowerBoards, live"
+      subtitle="A quick look at the boards running real-time power flow simulations."
+    />
+    <video
+      class="w-full rounded-lg shadow-lg bg-black"
+      controls
+      preload="metadata"
+      poster="/images/mpb/overview-poster.jpg"
+    >
+      <source src="/video/mpowerboards-demo.mp4" type="video/mp4" />
+    </video>
+  </WidgetWrapper>
 
   <!-- Stats Widget ****************** -->
 
   <Stats
+    id="about"
+    tagline="Progress & Validation"
+    title="Already in classrooms and labs"
     stats={[
-      { title: 'Downloads', amount: '132K' },
-      { title: 'Stars', amount: '24.8K' },
-      { title: 'Forks', amount: '10.3K' },
-      { title: 'Users', amount: '48.4K' },
+      { title: 'Undergrad / HS students', amount: '15+' },
+      { title: 'K-12 teachers & students', amount: '10+' },
+      { title: 'Professors & PhD researchers', amount: '8+' },
     ]}
   />
 
-  <!-- CallToAction Widget *********** -->
+  <!-- About / Mission **************** -->
 
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/arthelokyo/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
-      },
+  <Content
+    isAfterContent
+    items={[
+      { title: 'Working prototypes', description: 'Built, tested, and demoed in real classrooms.' },
+      { title: 'Georgia Tech faculty', description: 'Developed alongside GOAL and the AI Institute for Advances in Optimization.' },
+      { title: 'AI for Power Systems Institute', description: 'Partnered for outreach demos with high schools and undergraduates.' },
     ]}
+    image={{ src: '~/assets/images/mpb/overview.jpg', alt: 'MPowerBoards collage of all three flagship boards' }}
   >
-    <Fragment slot="title">
-      Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Our mission</h3>
+      Our mission is to make power systems education visual, interactive, and accessible. We'd love to connect with
+      educators, researchers, and investors.
     </Fragment>
+  </Content>
 
-    <Fragment slot="subtitle">
-      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
-      waste more time! :P
-    </Fragment>
-  </CallToAction>
+  <!-- Team **************************** -->
+
+  <WidgetWrapper id="team" containerClass="max-w-6xl mx-auto">
+    <Headline tagline="Who's behind it" title="Meet the team" />
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <Image src={teamMichael} alt="Michael A. Boateng" width={500} height={308} class="w-full h-auto rounded-lg" />
+      <Image src={teamAudrey} alt="Audrey H. Vu" width={500} height={308} class="w-full h-auto rounded-lg" />
+      <Image src={teamIfeanyi} alt="Ifeanyi D. Sorokwu" width={500} height={308} class="w-full h-auto rounded-lg" />
+      <Image src={teamBetelihem} alt="Betelihem K. Ashebo" width={500} height={308} class="w-full h-auto rounded-lg" />
+    </div>
+  </WidgetWrapper>
+
+  <!-- Contact Widget ****************** -->
+
+  <Contact
+    id="contact"
+    title="Let's connect"
+    subtitle="Educator, researcher, or investor — we'd love to hear from you."
+    inputs={[
+      { type: 'text', name: 'name', label: 'Name' },
+      { type: 'email', name: 'email', label: 'Email' },
+      { type: 'text', name: 'organization', label: 'Organization' },
+    ]}
+    textarea={{ label: 'Message' }}
+    button="Send message"
+    description="We typically respond within a few business days."
+  />
 </Layout>
