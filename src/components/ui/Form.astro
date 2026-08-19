@@ -5,7 +5,11 @@ import Button from '~/components/ui/Button.astro';
 const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } = Astro.props;
 ---
 
-<form>
+<form action="https://formsubmit.co/michaelbtng5@gmail.com" method="POST">
+  <input type="hidden" name="_subject" value="New message from the MPowerBoards site" />
+  <input type="hidden" name="_template" value="table" />
+  <input type="hidden" name="_next" value="https://michaelboateng.github.io/mpowerboards/#contact" />
+  <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
   {
     inputs &&
       inputs.map(
