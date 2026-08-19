@@ -10,6 +10,7 @@ import Contact from '~/components/widgets/Contact.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import Headline from '~/components/ui/Headline.astro';
 import { Image } from 'astro:assets';
+import { getAsset } from '~/utils/permalinks';
 import teamMichael from '~/assets/images/mpb/team-michael.png';
 import teamAudrey from '~/assets/images/mpb/team-audrey.png';
 import teamIfeanyi from '~/assets/images/mpb/team-ifeanyi.png';
@@ -142,9 +143,9 @@ const metadata = {
       class="w-full rounded-lg shadow-lg bg-black"
       controls
       preload="metadata"
-      poster="/images/mpb/overview-poster.jpg"
+      poster={getAsset('/images/mpb/overview-poster.jpg')}
     >
-      <source src="/video/mpowerboards-demo.mp4" type="video/mp4" />
+      <source src={getAsset('/video/mpowerboards-demo.mp4')} type="video/mp4" />
     </video>
   </WidgetWrapper>
 

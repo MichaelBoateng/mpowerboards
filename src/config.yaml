@@ -1,7 +1,7 @@
 site:
   name: MPowerBoards
-  site: 'https://mpowerboards.com'
-  base: '/'
+  site: 'https://michaelboateng.github.io'
+  base: '/mpowerboards'
   trailingSlash: false
 
 # Default SEO metadata
